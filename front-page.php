@@ -10,10 +10,28 @@
         }
     }?>
 
-    
     <div class="lista-productos my-5">
         <h2 class='text-center'>PRODUCTOS</h2>
         <div class="row">
+            <div class="col-12">
+                <select class="form-control" name="categorias-productos" id="categorias-productos">
+                    <option value="">Categorías de Productos</option>
+                    <?php
+                        $args = array(
+                            'orderby'    => 'name', 
+                            'order'      => 'ASC',
+                            'hide_empty' => true
+                        );
+                        $terms = get_terms('categorias-productos', $args);
+
+                        foreach ($terms as $term){
+                            echo '<option value="'.$term->slug.'">'.$term->name.'</option>';
+                        }
+                    ?>
+                </select>
+            </div>
+        </div>
+        <div id="resultado" class="row justify-content-center text-center">
         <?php
             $args = array(
                 'post_type' => 'producto',
