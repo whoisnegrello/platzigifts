@@ -73,3 +73,34 @@ function productos_type() {
 
 }
 add_action( 'init', 'productos_type');
+
+add_action('init', 'lstCreateCustomTaxonomies');
+function lstCreateCustomTaxonomies(){
+
+    $taxonomy = array(
+        'labels' => array(
+            'name'          => _x('Categorías de Productos', 'taxonomy general name', 'ls19'),
+            'singular_name' => _x('Categoría de Productos', 'taxonomy singular name', 'ls19'),
+            'search_items'  => __('Buscar categoría'),
+            'all_items'     => __('Todas las categorías'),
+            'edit_item'     => __('Editar categoría'),
+            'update_item'   => __('Actualizar categoría'),
+            'add_new_item'  => __('Agregar categoría'),
+            'menu_name'     => __('Categorías de Productos')
+        ),
+        'slug' => 'categorias-productos',
+        'post_types' => array('producto')
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'public'            => true,
+        'labels'            => $taxonomy['labels'],
+        'show_ui'           => true,
+        'show_in_nav_menus' => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array('slug' => $taxonomy['slug'])
+    );
+    register_taxonomy($taxonomy['slug'], $taxonomy['post_types'], $args);
+}
