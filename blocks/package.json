@@ -1,0 +1,35 @@
+{
+  "name": "pg-blocks",
+  "version": "1.0.0",
+  "description": "Bloques para Platzi Gifts.",
+  "main": "src/index.js",
+  "scripts": {
+      "build": "wp-scripts build",
+      "check-engines": "wp-scripts check-engines",
+      "check-licenses": "wp-scripts check-licenses",
+      "lint:css": "wp-scripts lint-style",
+      "lint:js": "wp-scripts lint-js",
+      "lint:pkg-json": "wp-scripts lint-pkg-json",
+      "start": "wp-scripts start",
+      "test:e2e": "wp-scripts test-e2e",
+      "test:unit": "wp-scripts test-unit-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whoisnegrello/platzigifts.git"
+  },
+  "keywords": [
+    "platzi",
+    "wordpress",
+    "profesional"
+  ],
+  "author": "Lucio Negrello",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whoisnegrello/platzigifts/issues"
+  },
+  "homepage": "https://github.com/whoisnegrello/platzigifts#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^6.0.0"
+  }
+}

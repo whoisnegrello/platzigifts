@@ -181,3 +181,24 @@ function novedadesAPI($data)
    
     return $return;
 }
+
+add_action('init', 'pgRegisterBlock');
+function pgRegisterBlock()
+{
+    // Requiere los parámetros generados automaticamente por WP Scripts
+    $asset_file = include_once get_template_directory().'/blocks/build/index.asset.php';
+    //Registra el script
+    wp_register_script(
+        'pgb-js',
+        get_template_directory_uri().'/blocks/build/index.js',
+        $asset_file['dependencies'],
+        $asset_file['version']
+    );
+
+    register_block_type(
+        'pgb/basic-block',
+        array(
+            'editor_script' => 'pgb-js'
+        )
+    );
+}
