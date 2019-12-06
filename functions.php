@@ -24,7 +24,14 @@ function template_styles(){
 
     wp_enqueue_script( 'custom', get_template_directory_uri()."/assets/js/custom.js", false,"1.1", true );
 
-    wp_localize_script('custom', 'pg', array('ajaxurl' => admin_url('admin-ajax.php')));
+    wp_localize_script(
+        'custom',
+        'pg',
+        array(
+            'ajaxurl' => admin_url('admin-ajax.php'),
+            'apiurl' => home_url('/wp-json/pg/v1/')
+        )
+    );
 }
 
 add_action('wp_enqueue_scripts','template_styles');

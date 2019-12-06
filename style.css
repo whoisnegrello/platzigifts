@@ -59,6 +59,6 @@ footer p {
 .lista-productos h4 a {
   color: #000;
 }
-.single-archive a, .productos-relacionados a{
+.single-archive a, .productos-relacionados a, #resultado-novedades a{
     color:#000;
 }
