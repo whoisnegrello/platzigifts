@@ -1,0 +1,12 @@
+/*
+Theme Name: PlatziGifts
+Version: 1.0
+Description: Theme desarrollado a medida para catálogo de regalos de Platzi
+Author: Cristian Ramanzin   
+Author URI: https://github.com/ramitaenlarama
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+
+a,h1,h2,h3,h4,li,p,span,ul{font-family:Montserrat}.attachment-large{max-width:100%;height:auto!important}h1{margin:50px 0;font-weight: 900;}header{background-color:#1c3643}header nav li{list-style:none;display:inline-block;padding:0 15px}header nav li a{color:#fff;text-transform:uppercase}header nav li a:hover{color:#fff}footer{background-color:#1c3643;padding:10px 0}footer p{margin:0;color:#fff}.lista-productos h2{font-weight:900}.lista-productos h4{font-weight:400}.lista-productos h4 a{color:#000}
