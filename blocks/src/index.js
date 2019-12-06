@@ -1,5 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { TextControl } from '@wordpress/components';
+import { InspectorControls } from '@wordpress/editor';
+import { TextControl, PanelBody, PanelRow } from '@wordpress/components';
 
 registerBlockType('pgb/basic-block', {
 	title: 'Basic Block',
@@ -18,11 +19,23 @@ registerBlockType('pgb/basic-block', {
 		const handlerOnChangeTextControl = (newContent) => {
 			setAttributes( { content: newContent } )
 		}
-		return <TextControl
-					label="Complete el campo"
-					value={ content }
-					onChange={ handlerOnChangeTextControl }
-				/>
+		return <>
+            <InspectorControls>
+                <PanelBody
+                    title="Modificar texto del Bloque Básico"
+                    initialOpen={ false }
+                >
+                    <PanelRow>
+                        <TextControl
+                            label="Complete el campo"
+                            value={ content }
+                            onChange={ handlerOnChangeTextControl }
+                        />
+                    </PanelRow>
+                </PanelBody>
+            </InspectorControls>
+            <h2>{content}</h2>
+        </>
 	},
 	save: () => null
 });
