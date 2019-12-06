@@ -1,4 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
+import { TextControl } from '@wordpress/components';
 
 registerBlockType('pgb/basic-block', {
 	title: 'Basic Block',
@@ -14,13 +15,13 @@ registerBlockType('pgb/basic-block', {
 	},
 	edit: (props) => {
 		const { attributes: { content }, setAttributes, className } = props;
-		const handlerOnChangeInput = (event) => {
-			setAttributes( { content: event.target.value } )
+		const handlerOnChangeTextControl = (newContent) => {
+			setAttributes( { content: newContent } )
 		}
-		return <input
-					class={ className }
+		return <TextControl
+					label="Complete el campo"
 					value={ content }
-					onChange={ handlerOnChangeInput }
+					onChange={ handlerOnChangeTextControl }
 				/>
 	},
 	save: (props) => <h2 class={ props.className }>{ props.attributes.content }</h2>
