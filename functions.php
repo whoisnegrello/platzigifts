@@ -140,3 +140,37 @@ function filtroProductos(){
 
     wp_send_json($return);
 }
+
+add_action('rest_api_init', function (){
+    register_rest_route(
+        'pg/v1', '/novedades/(?P<cantidad>\d+)', array(
+            'methods' => 'GET',
+            'callback' => 'novedadesAPI'
+        )
+    );
+});
+function novedadesAPI($data)
+{
+    $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => $data['cantidad'],
+        'order'     => 'ASC',
+        'orderby' => 'title'
+    );
+    $novedades = new WP_Query($args);
+   
+    if ($novedades->have_posts()) {
+        while($novedades->have_posts()){
+            $novedades->the_post();
+            $return[] = array(
+                'imagen' => get_the_post_thumbnail(get_the_ID(), 'large'),
+                'link' => get_permalink(),
+                'titulo' => get_the_title()
+            );
+        }
+    } else {
+        return null;
+    }
+   
+    return $return;
+}
