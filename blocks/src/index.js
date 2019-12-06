@@ -24,5 +24,5 @@ registerBlockType('pgb/basic-block', {
 					onChange={ handlerOnChangeTextControl }
 				/>
 	},
-	save: (props) => <h2 class={ props.className }>{ props.attributes.content }</h2>
+	save: () => null
 });

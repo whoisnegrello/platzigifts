@@ -198,7 +198,13 @@ function pgRegisterBlock()
     register_block_type(
         'pgb/basic-block',
         array(
-            'editor_script' => 'pgb-js'
+            'editor_script' => 'pgb-js',
+            'render_callback' => 'pgRenderDynamicBlock'
         )
     );
+}
+
+function pgRenderDynamicBlock($attributes, $content)
+{
+    return '<h2>'.$attributes['content'].'</h2>';
 }
