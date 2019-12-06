@@ -16,5 +16,29 @@
     </div>
     <?php }
         } ?>
+
+        <?php $args = array(
+            'post_type' => 'producto',
+            'posts_per_page' => -1,
+            'order'     => 'ASC',
+            'orderby' => 'title'
+        );
+        $productos = new WP_Query($args); ?>
+
+        <?php if ($productos->have_posts()) { ?>
+        <div class="row justify-content-center">
+            <?php while($productos->have_posts()) { ?>
+                <?php $productos->the_post(); ?>
+                <div class="col-md-2 col-12 my-3">
+                    <figure><?php the_post_thumbnail('thumbnail'); ?></figure>
+                    <h4 class='my-2'>
+                        <a href="<?php the_permalink();?>">
+                            <?php the_title(); ?>
+                        </a>
+                    </h4>
+                </div>
+            <?php } ?>
+        </div>
+        <?php } ?>
 </main>
 <?php get_footer(); ?>
